@@ -112,7 +112,7 @@
 
     .video-label {
       text-align: center;
-      color: white;
+      color: black;
       font-size: 24px;
       margin-bottom: 20px;
       font-weight: 600;
@@ -242,11 +242,21 @@
       </div>
     </div>
 
+    <div class="audio-section" style="text-align: center;background: rosybrown;">
+      <div class="audio-label">Message from Sai</div>
+      <div class="audio-container" style="margin-top: 10px;margin-bottom: 20px;">
+        <audio id="audioPlayer" controls>
+          <source src="img/audio.mp4" type="audio/mp4">
+          Your browser does not support the audio tag.
+        </audio>
+      </div>
+    </div>
+
     <div class="video-section">
-      <div class="video-label">Message 🎬</div>
+      <div class="video-label">Let's watch 🎬</div>
       <div class="video-container" id="videoContainer">
         <video id="videoPlayer" controls playsinline>
-          <source src="img/converted-2.mp4" type="video/mp4">
+          <source src="img/video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <div class="video-placeholder" id="videoPlaceholder">
