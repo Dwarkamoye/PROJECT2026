@@ -144,12 +144,22 @@
     .video-placeholder {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #333, #555);
+      background: rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
+      position: absolute;
       overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-placeholder.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
 
     .play-button {
@@ -176,6 +186,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .back-button {
@@ -234,11 +245,12 @@
     <div class="video-section">
       <div class="video-label">Message 🎬</div>
       <div class="video-container" id="videoContainer">
-        <div class="video-placeholder">
-          <video id="videoPlayer" controls>
-            <source src="img/converted.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <video id="videoPlayer" controls>
+          <source src="img/converted.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-placeholder" id="videoPlaceholder">
+          <div class="play-button">▶</div>
         </div>
       </div>
     </div>
@@ -250,18 +262,15 @@
 
   <script>
     const videoContainer = document.getElementById('videoContainer');
-    const videoPlayer = document.getElementById('videoPlayer');
+    const videoPlaceholder = document.getElementById('videoPlaceholder');
 
     videoContainer.addEventListener('click', () => {
-      const placeholder = videoContainer.querySelector('.video-placeholder');
-      
       if (videoPlayer.paused) {
-        placeholder.style.display = 'none';
-        videoPlayer.style.display = 'block';
+        videoPlaceholder.classList.add('hidden');
         videoPlayer.play();
       } else {
         videoPlayer.pause();
-        placeholder.style.display = 'flex';
+        videoPlaceholder.classList.remove('hidden');
         videoPlayer.style.display = 'none';
       }
     });
