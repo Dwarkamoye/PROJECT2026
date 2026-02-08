@@ -9,8 +9,7 @@ const funnyTexts = [
   "Nice try 😏",
   "Oops! Not today 😜",
   "Wrong button 😆",
-  "Hehe, you missed 🤭",
-  "Just say Yes already 💕"
+  "Hehe, you missed 🤭"
 ];
 
 // No button escape
